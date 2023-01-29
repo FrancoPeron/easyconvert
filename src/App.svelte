@@ -1,4 +1,4 @@
-<!-- <script>
+<script>
 // @ts-nocheck
 
   import Dropzone from "svelte-file-dropzone";
@@ -49,7 +49,4 @@
       <button on:click={e => handleRemoveFile(e, index)}>Remove</button>
     </div>
   {/each}
-</div> -->
-
-
-<p>dfsdfsdfgdfg</p>
+</div>
