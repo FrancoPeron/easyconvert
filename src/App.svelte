@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 // @ts-nocheck
 
   import Dropzone from "svelte-file-dropzone";
@@ -44,9 +44,12 @@
   {/if}
   {#each files.accepted as item, index}
     <div>
-      <!-- <span>{item.name}</span> -->
+
       <img class="previewImg" src={URL.createObjectURL(item)} alt="">
       <button on:click={e => handleRemoveFile(e, index)}>Remove</button>
     </div>
   {/each}
-</div>
+</div> -->
+
+
+<p>dfsdfsdfgdfg</p>
