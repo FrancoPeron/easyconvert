@@ -25,29 +25,6 @@
   background: rgb(0, 0, 0);
 }
 
-/* ---------- Fonts ---------- */
-
-@font-face {
-  font-family: 'MonumentExtended';
-  font-style: normal;
-  font-weight: 300;
-  src: url('@/assets/fonts/MonumentExtended-Light.otf') format('opentype')
-}
-
-@font-face {
-  font-family: 'MonumentExtended';
-  font-style: normal;
-  font-weight: 500;
-  src: url('@/assets/fonts/MonumentExtended-Regular.otf') format('opentype')
-}
-
-@font-face {
-  font-family: 'MonumentExtended';
-  font-style: normal;
-  font-weight: 700;
-  src: url('@/assets/fonts/MonumentExtended-Black.otf') format('opentype')
-}
-
 
 /* ---------- Lists ---------- */
 
@@ -121,7 +98,7 @@ button{
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'EuclidCircular', sans-serif;
   background-color: #ffffff;
   min-width: 400px;
   height: 100vh;
@@ -166,19 +143,6 @@ main {
 
 /*-----------------------------------------*/
 
-
-.line{
-  height: 2px !important;
-  width: 100%;
-  background: #000000;
-}
-
-.here{
-  font-weight: 700;
-}
-.here:hover{
-  text-decoration: underline;
-}
 
 .main-music__list,
 .main-artists__list,
@@ -227,3 +191,29 @@ main {
   }
 }
 
+.bedelay{
+  position: relative;
+  cursor: pointer;
+}
+.bedelay::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);;
+  z-index: 999;
+  background: rgba(66, 66, 66, 0.15) url(/src/assets/imgs/tick.svg) no-repeat;
+  background-position: center;
+  background-size: 80px auto;
+  backdrop-filter: blur(2px);
+  border: 3px solid #FFFFFF;
+  border-radius: 6px 6px 0 0 ;
+  
+}
+
+.bedelay:hover::before{
+  background: rgba(66, 66, 66, 0.15) url(/src/assets/imgs/down.svg) no-repeat;
+  background-position: center;
+  background-size: 60px auto;
+}

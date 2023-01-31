@@ -1,15 +1,39 @@
-$cWhite: #ffffff;
-$cgrey1: #FAFAFA;
-$cgrey2: #F0F0F0;
-$cgrey3: #DBDBDB;
-$cgrey4: #C2C2C2;
-$cgrey5: #9E9E9E;
-$cgrey6: #7A7A7A;
-$cgrey7: #575757;
-$cgrey7: #3D3D3D;
-$cgrey7: #292929;
-$cgrey7: #1F1F1F;
-$cBlack: #000000;
+/* ---------- Fonts ---------- */
+
+@font-face {
+  font-family: 'EuclidCircular';
+  font-style: normal;
+  font-weight: 300;
+  src: url('fonts/EuclidCircularA-Light.woff2') format('woff2'), 
+}
+
+@font-face {
+  font-family: 'EuclidCircular';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/EuclidCircularA-Regular.woff2') format('woff2'), 
+}
+
+@font-face {
+  font-family: 'EuclidCircular';
+  font-style: normal;
+  font-weight: 500;
+  src: url('fonts/EuclidCircularA-Medium.woff2') format('woff2'), 
+}
+
+@font-face {
+  font-family: 'EuclidCircular';
+  font-style: normal;
+  font-weight: 600;
+  src: url('fonts/EuclidCircularA-SemiBold.woff2') format('woff2'), 
+}
+
+@font-face {
+  font-family: 'EuclidCircular';
+  font-style: normal;
+  font-weight: 700;
+  src: url('fonts/EuclidCircularA-Bold.woff2') format('woff2'), 
+}
 
 
 /* ---------- Container ---------- */
@@ -83,7 +107,7 @@ $cBlack: #000000;
     tJustify: justify,
   );
 
-	font-family: sans-serif;
+	font-family: 'EuclidCircular', sans-serif;
   font-size: map-get($fSize, $f-size);
 	font-weight: map-get($fWeights, $f-width);
   letter-spacing: map-get($fLetterS, $f-letterS);
@@ -111,16 +135,16 @@ $cBlack: #000000;
 		bN: none,
 	);
 
-  @include font(fb1, w300, MonumentE);
+  @include font(fb1, w500, MonumentE);
   // -webkit-text-stroke: thin;
-  letter-spacing: 0.15rem;
+  letter-spacing: 0.1rem;
   white-space: nowrap;
-  text-transform: uppercase;
   text-align: center;
 
   width: fit-content;
   height: 52px;
   padding: 1rem 1.5rem;
+  border-radius: 12px;
 
   cursor: pointer;
   transition: ease-in-out 0.3s;
@@ -133,27 +157,11 @@ $cBlack: #000000;
   background-color: map-get($bgColor, $bg-color);
   border: map-get($Border, $border);
   color: map-get($Color, $color);
-  @if ($color == "cB"){
-    -webkit-text-stroke: 1px $cBlack;
-  }@else{
-    -webkit-text-stroke: 1px $cWhite;
-  }
 
   @if($hover){
 
     &:hover {
-
-      @if ($bg-color == "bgW"){
-        background: $cBlack;
-        color: $cWhite;
-        -webkit-text-stroke: 1px $cWhite;
-      }
-      @else{
-        background: $cWhite;
-        color: $cBlack;
-        -webkit-text-stroke: 1px $cBlack;
-      }
-
+      transform: translateY(-2px);
       transition: ease-in-out 0.5s;
     }
 
@@ -181,3 +189,4 @@ $cBlack: #000000;
     @media (min-width: 1440px) { @content }
   }
 };
+

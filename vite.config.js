@@ -6,11 +6,12 @@ import sveltePreprocess from 'svelte-preprocess';
 export default defineConfig({
   plugins: [svelte({
     preprocess: sveltePreprocess({
-      scss: {
-        renderSync: true,
-        implementation: 'sass',
-        prependData: '@import "src/assets/styles/style.scss";',
-      },
+      scss: true
+      // {
+      //   renderSync: true,
+      //   implementation: 'sass',
+      //   prependData: '@import "src/assets/styles/style.scss";',
+      // },
     }),
   })],
   build: {
