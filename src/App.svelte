@@ -18,30 +18,49 @@
     const { acceptedFiles, fileRejections } = e.detail;
     files.accepted = [...files.accepted, ...acceptedFiles];
     files.rejected = [...files.rejected, ...fileRejections];
-    console.log(files.accepted)
+  }
+  
+  function handleRemoveAll(e) {
+    e.stopPropagation();
+    files.accepted = [];
+    dataImgsWebp = [{}];
   }
 
   function handleRemoveFile(e, index) {
     files.accepted.splice(index, 1);
     files.accepted = [...files.accepted];
-    
     dataImgsWebp.splice(index, 1);
-    // files.accepted[index].name
-
     
-    removeBedelay()
-    console.log("ghjy",dataImgsWebp)
 
-    setTimeout(function(){
-      console.log("Hola Mundo");
-      addBedelay()
-    }, 2000);
+    // console.log("dataImgsWebp",dataImgsWebp)
+    // console.log("files.accepted",files.accepted)
+
+    setTimeout(removeBedelay,5)
+    setTimeout(addBedelay,10)
+    setTimeout(addDownImgs,15)
+
   }
 
-  function handleRemoveAll(e) {
-    e.stopPropagation();
-    files.accepted = [];
-    dataImgsWebp = [{}];
+  function addBedelay(){
+    dataImgsWebp.forEach(element2 => {
+      document.getElementById(element2.name).classList.add("bedelay")
+    });
+  }
+
+  function removeBedelay(){
+    (files.accepted).forEach(element => {
+      document.getElementById(element.name).classList.remove("bedelay")
+      document.getElementById(element.name).removeAttribute("href")
+      document.getElementById(element.name).removeAttribute("download")
+    });
+  }
+
+  function addDownImgs(){
+    dataImgsWebp.forEach(element => {
+      let enlace = document.getElementById(element.name)
+      enlace.download = `${element.name.split(".", 1)[0]}.webp`;
+      enlace.href = element.data;
+    })
   }
 
   function convertImgWebp(){
@@ -50,8 +69,7 @@
     const ctx = canvas.getContext("2d");
 
     for (let index = 0; index < files.accepted.length; index++) {
-      // --> Guardo los nombres
-      // .split(".", 1)[0]
+      // --> Guardo el nombre
       dataImgsWebp[index] = {name:(files.accepted[index].name)}
 
       //Creo una imagen nueva
@@ -65,49 +83,15 @@
         //Convierto el cavas en webp
         let webpImage = canvas.toDataURL("image/webp", 0.5);
 
-        // --> Guardo las imagenes Convertidas
+        // --> Guardo la imagen convertida
         dataImgsWebp[index] = {...dataImgsWebp[index],data: String(webpImage)}
-
-        document.getElementById(dataImgsWebp[index].name).classList.add("bedelay")
+        addBedelay()
+        addDownImgs()
       };
     }
-
-    console.log(dataImgsWebp)
   }
 
 
-  function addBedelay(){
-    // console.log(dataImgsWebp)
-    dataImgsWebp.forEach(element2 => {
-      document.getElementById(element2.name).classList.add("bedelay")
-      // console.log(element2)
-    });
-  }
-  function removeBedelay(){
-    dataImgsWebp.forEach(element => {
-      document.getElementById(element.name).classList.remove("bedelay")
-    });
-  }
-
-
-  //Descarga Imagenes a PC
-  // function downImgs(){
-
-  //   btnDescargar.addEventListener("click", () => {
-  //     let enlace = document.createElement('a');
-  //     console.log(this.dataImgsWebp.length)
-  //     for (let index = 0; index < this.dataImgsWebp.length; index++) {
-  //       enlace.download = `${this.dataImgsWebp[index].name}.webp`;
-  //       enlace.href = this.dataImgsWebp[index];
-  //       enlace.click();
-  //     }
-
-  //   });
-  // }
-
-
-  //Descargar Imgs
-  // downImgs()
 </script>
 
 <main class="main-index">
@@ -144,9 +128,9 @@
     <div class="imgs-list">
       {#each files.accepted as item, index}
         <div class="imgs-list__item">
-          <div class="imgs-list__img" id={item.name}>
+          <a class="imgs-list__img" id={item.name}>
             <img class="imgs-list__preview-img" src={URL.createObjectURL(item)} alt="" />
-          </div>
+          </a>
           <div class="imgs-list__box">
             <p class="imgs-list__name">{item.name}</p>
             <button class="imgs-list__remove" on:click={(e) => handleRemoveFile(e, index)}>
