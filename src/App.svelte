@@ -10,12 +10,7 @@
     accepted: [],
     rejected: [],
   };
-
-  let urlsImgOld = [];
-  let urlsImgNew = [];
-  let nameImgNew = [];
-
-
+  let dataImgsWebp = [];
   
 /* || Functions || ----------------------------------------*/
 
@@ -29,14 +24,24 @@
   function handleRemoveFile(e, index) {
     files.accepted.splice(index, 1);
     files.accepted = [...files.accepted];
+    
+    dataImgsWebp.splice(index, 1);
+    // files.accepted[index].name
+
+    
+    removeBedelay()
+    console.log("ghjy",dataImgsWebp)
+
+    setTimeout(function(){
+      console.log("Hola Mundo");
+      addBedelay()
+    }, 2000);
   }
 
   function handleRemoveAll(e) {
     e.stopPropagation();
     files.accepted = [];
-    urlsImgOld = [];
-    urlsImgNew = [];
-    nameImgNew = []
+    dataImgsWebp = [{}];
   }
 
   function convertImgWebp(){
@@ -45,11 +50,10 @@
     const ctx = canvas.getContext("2d");
 
     for (let index = 0; index < files.accepted.length; index++) {
-      //Guardo las imagenes Cargadas
-      urlsImgOld[index] = URL.createObjectURL(files.accepted[index]);
-      //Guardo los nombres
-      // nameImgNew[index] = (files.accepted.name).split(".", 1)[0]
-      nameImgNew[index] = ((files.accepted[index].name).split(".", 1)[0])
+      // --> Guardo los nombres
+      // .split(".", 1)[0]
+      dataImgsWebp[index] = {name:(files.accepted[index].name)}
+
       //Creo una imagen nueva
       let img = new Image();
       //Cargo la imagen al canvas
@@ -60,26 +64,41 @@
         ctx.drawImage(img, 0, 0);
         //Convierto el cavas en webp
         let webpImage = canvas.toDataURL("image/webp", 0.5);
-        //Guardo las imagenes Convertidas
-        urlsImgNew[index] = String(webpImage);
 
-        document.getElementById(nameImgNew[index]).classList.add("bedelay")
+        // --> Guardo las imagenes Convertidas
+        dataImgsWebp[index] = {...dataImgsWebp[index],data: String(webpImage)}
+
+        document.getElementById(dataImgsWebp[index].name).classList.add("bedelay")
       };
     }
 
-    console.log(urlsImgNew)
-    console.log(nameImgNew)
+    console.log(dataImgsWebp)
   }
+
+
+  function addBedelay(){
+    // console.log(dataImgsWebp)
+    dataImgsWebp.forEach(element2 => {
+      document.getElementById(element2.name).classList.add("bedelay")
+      // console.log(element2)
+    });
+  }
+  function removeBedelay(){
+    dataImgsWebp.forEach(element => {
+      document.getElementById(element.name).classList.remove("bedelay")
+    });
+  }
+
 
   //Descarga Imagenes a PC
   // function downImgs(){
 
   //   btnDescargar.addEventListener("click", () => {
   //     let enlace = document.createElement('a');
-  //     console.log(this.urlsImgNew.length)
-  //     for (let index = 0; index < this.urlsImgNew.length; index++) {
-  //       enlace.download = `${this.nameImgNew[index]}.webp`;
-  //       enlace.href = this.urlsImgNew[index];
+  //     console.log(this.dataImgsWebp.length)
+  //     for (let index = 0; index < this.dataImgsWebp.length; index++) {
+  //       enlace.download = `${this.dataImgsWebp[index].name}.webp`;
+  //       enlace.href = this.dataImgsWebp[index];
   //       enlace.click();
   //     }
 
@@ -125,7 +144,7 @@
     <div class="imgs-list">
       {#each files.accepted as item, index}
         <div class="imgs-list__item">
-          <div class="imgs-list__img" id={item.name.split(".", 1)[0]}>
+          <div class="imgs-list__img" id={item.name}>
             <img class="imgs-list__preview-img" src={URL.createObjectURL(item)} alt="" />
           </div>
           <div class="imgs-list__box">
