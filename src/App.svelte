@@ -2,6 +2,8 @@
   // @ts-nocheck
 
   import Dropzone from "svelte-file-dropzone";
+  import JSZip from "jszip";
+  import { saveAs } from 'file-saver';
 
   
 /* || Data || ----------------------------------------*/
@@ -11,6 +13,7 @@
     rejected: [],
   };
   let dataImgsWebp = [];
+  let quality = 0.5
   
 /* || Functions || ----------------------------------------*/
 
@@ -30,10 +33,6 @@
     files.accepted.splice(index, 1);
     files.accepted = [...files.accepted];
     dataImgsWebp.splice(index, 1);
-    
-
-    // console.log("dataImgsWebp",dataImgsWebp)
-    // console.log("files.accepted",files.accepted)
 
     setTimeout(removeBedelay,5)
     setTimeout(addBedelay,10)
@@ -80,15 +79,40 @@
         canvas.width = img.width;
         canvas.height = img.height;
         ctx.drawImage(img, 0, 0);
-        //Convierto el cavas en webp
-        let webpImage = canvas.toDataURL("image/webp", 0.5);
 
+        //Convierto el cavas en webp
+        let webpImage = canvas.toDataURL("image/webp", quality);
+        
         // --> Guardo la imagen convertida
         dataImgsWebp[index] = {...dataImgsWebp[index],data: String(webpImage)}
+
+        canvas.toBlob((bolbImage) => {
+          dataImgsWebp[index] = {...dataImgsWebp[index],canvasImg: bolbImage}
+        },"image/webp", quality);
+
         addBedelay()
         addDownImgs()
+
+
       };
     }
+    console.log("dataImgsWebp",dataImgsWebp)
+    console.log("files.accepted",files.accepted)
+  }
+
+  function downloadZip(){
+
+    let zip = new JSZip();
+    dataImgsWebp.forEach(element => {
+      zip.file(element.name.split(".", 1)[0] + ".webp", element.canvasImg)
+    });
+    console.log(zip)
+    
+    zip.generateAsync({type:"blob"})
+    .then(function(content) {
+      saveAs(content, "photos.zip");
+    });
+
   }
 
 
@@ -149,11 +173,11 @@
 
     <div class="imgs-box__nav">
       <div class="imgs-box__input">
-        <input type="range" id="volume" min="0" max="1" value="0.5" step="0.1">
-        <p></p>
+        <input type="range" id="volume" min="0" max="1" bind:value="{quality}" step="0.1">
+        <p>{quality}</p>
       </div>
       <div class="imgs-box__btns">
-        <button class="imgs-box__down">Download as Zip File</button>
+        <button class="imgs-box__down" on:click={downloadZip}>Download as Zip File</button>
         <button class="imgs-box__convert" on:click={convertImgWebp}>Convert</button>
       </div>
     </div>
