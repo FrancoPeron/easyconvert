@@ -5,6 +5,7 @@
   import JSZip from "jszip";
   import { saveAs } from 'file-saver';
 
+
   
 /* || Data || ----------------------------------------*/
 
@@ -12,27 +13,27 @@
     accepted: [],
     rejected: [],
   };
-  let dataImgsWebp = [];
+
+  let dataImgsFiles = [];
   let quality = 0.5
   
 /* || Functions || ----------------------------------------*/
 
   function handleFilesSelect(e) {
     const { acceptedFiles, fileRejections } = e.detail;
-    files.accepted = [...files.accepted, ...acceptedFiles];
-    files.rejected = [...files.rejected, ...fileRejections];
+    acceptedFiles.forEach((element)=>{
+      dataImgsFiles = [...dataImgsFiles,{...element, id:crypto.randomUUID(),src:URL.createObjectURL(element)}]
+    })
   }
   
   function handleRemoveAll(e) {
     e.stopPropagation();
-    files.accepted = [];
-    dataImgsWebp = [{}];
+    dataImgsFiles = [];
   }
 
   function handleRemoveFile(e, index) {
-    files.accepted.splice(index, 1);
-    files.accepted = [...files.accepted];
-    dataImgsWebp.splice(index, 1);
+    dataImgsFiles.splice(index, 1);
+    dataImgsFiles = dataImgsFiles
 
     setTimeout(removeBedelay,5)
     setTimeout(addBedelay,10)
@@ -40,25 +41,29 @@
 
   }
 
-  function addBedelay(){
-    dataImgsWebp.forEach(element2 => {
-      document.getElementById(element2.name).classList.add("bedelay")
+  function removeBedelay(){
+    dataImgsFiles.forEach(element => {
+      document.getElementById(element.id).classList.remove("bedelay")
+      document.getElementById(element.id).removeAttribute("href")
+      document.getElementById(element.id).removeAttribute("download")
     });
   }
 
-  function removeBedelay(){
-    (files.accepted).forEach(element => {
-      document.getElementById(element.name).classList.remove("bedelay")
-      document.getElementById(element.name).removeAttribute("href")
-      document.getElementById(element.name).removeAttribute("download")
+  function addBedelay(){
+    dataImgsFiles.forEach(element => {
+      if (element.webpImg) {
+        document.getElementById(element.id).classList.add("bedelay")
+      }
     });
   }
 
   function addDownImgs(){
-    dataImgsWebp.forEach(element => {
-      let enlace = document.getElementById(element.name)
-      enlace.download = `${element.name.split(".", 1)[0]}.webp`;
-      enlace.href = element.data;
+    dataImgsFiles.forEach(element => {
+      if (element.webpImg) {
+        let enlace = document.getElementById(element.id)
+        enlace.download = `${element.path.split(".", 1)[0]}.webp`;
+        enlace.href = element.webpImg;
+      }
     })
   }
 
@@ -66,15 +71,12 @@
     //Creo el canvas
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
-
-    for (let index = 0; index < files.accepted.length; index++) {
-      // --> Guardo el nombre
-      dataImgsWebp[index] = {name:(files.accepted[index].name)}
-
+    for (let index = 0; index < dataImgsFiles.length; index++) {
       //Creo una imagen nueva
       let img = new Image();
       //Cargo la imagen al canvas
-      img.src = URL.createObjectURL(files.accepted[index]);
+      img.src = dataImgsFiles[index].src;
+      console.log(img.src)
       img.onload = () => {
         canvas.width = img.width;
         canvas.height = img.height;
@@ -84,27 +86,26 @@
         let webpImage = canvas.toDataURL("image/webp", quality);
         
         // --> Guardo la imagen convertida
-        dataImgsWebp[index] = {...dataImgsWebp[index],data: String(webpImage)}
+        dataImgsFiles[index] = {...dataImgsFiles[index],webpImg: String(webpImage)}
 
         canvas.toBlob((bolbImage) => {
-          dataImgsWebp[index] = {...dataImgsWebp[index],canvasImg: bolbImage}
+          dataImgsFiles[index] = {...dataImgsFiles[index],canvasImg: bolbImage}
         },"image/webp", quality);
 
         addBedelay()
         addDownImgs()
 
-
       };
     }
-    console.log("dataImgsWebp",dataImgsWebp)
-    console.log("files.accepted",files.accepted)
+    // console.log("dataImgsFiles",dataImgsFiles)
+    // console.log("files.accepted",files.accepted)
   }
 
   function downloadZip(){
 
     let zip = new JSZip();
-    dataImgsWebp.forEach(element => {
-      zip.file(element.name.split(".", 1)[0] + ".webp", element.canvasImg)
+    dataImgsFiles.forEach(element => {
+      zip.file(element.path.split(".", 1)[0] + ".webp", element.canvasImg)
     });
     console.log(zip)
     
@@ -139,8 +140,8 @@
     </div>
     <button class="upload-box__btn">Upload Files</button>
     <div class="upload-box__cont-remove">
-      <p class="upload-box__count">{files.accepted.length} files uploaded</p>
-      {#if files.accepted.length > 0}
+      <p class="upload-box__count">{dataImgsFiles.length} files uploaded</p>
+      {#if dataImgsFiles.length > 0}
         <button class="upload-box__removeAll" on:click={handleRemoveAll}>Remove All</button>
       {/if}
     </div>
@@ -150,21 +151,20 @@
   <section class="imgs-box">
 
     <div class="imgs-list">
-      {#each files.accepted as item, index}
+      {#each dataImgsFiles as item, index}
         <div class="imgs-list__item">
-          <a class="imgs-list__img" id={item.name}>
-            <img class="imgs-list__preview-img" src={URL.createObjectURL(item)} alt="" />
+          <a class="imgs-list__img" id={item.id}>
+            <img class="imgs-list__preview-img" src={item.src} alt="" />
           </a>
           <div class="imgs-list__box">
-            <p class="imgs-list__name">{item.name}</p>
+            <p class="imgs-list__name">{item.path}</p>
             <button class="imgs-list__remove" on:click={(e) => handleRemoveFile(e, index)}>
               <svg width="12" height="12" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0.989525 0.318016C1.18479 0.122754 1.50137 0.122754 1.69663 0.318016L7.35349 5.97487C7.54875 6.17013 7.54875 6.48672 7.35349 6.68198C7.15822 6.87724 6.84164 6.87724 6.64638 6.68198L0.989525 1.02512C0.794263 0.829861 0.794263 0.513279 0.989525 0.318016Z" fill="#1F1F1F"/>
                 <path d="M0.989525 0.318016C1.18479 0.122754 1.50137 0.122754 1.69663 0.318016L7.35349 5.97487C7.54875 6.17013 7.54875 6.48672 7.35349 6.68198C7.15822 6.87724 6.84164 6.87724 6.64638 6.68198L0.989525 1.02512C0.794263 0.829861 0.794263 0.513279 0.989525 0.318016Z" fill="#1F1F1F"/>
                 <path d="M0.989576 6.682C0.794314 6.48674 0.794314 6.17015 0.989576 5.97489L6.64643 0.318038C6.84169 0.122776 7.15827 0.122776 7.35354 0.318038C7.5488 0.5133 7.5488 0.829883 7.35354 1.02514L1.69668 6.682C1.50142 6.87726 1.18484 6.87726 0.989576 6.682Z" fill="#1F1F1F"/>
                 <path d="M0.989576 6.682C0.794314 6.48674 0.794314 6.17015 0.989576 5.97489L6.64643 0.318038C6.84169 0.122776 7.15827 0.122776 7.35354 0.318038C7.5488 0.5133 7.5488 0.829883 7.35354 1.02514L1.69668 6.682C1.50142 6.87726 1.18484 6.87726 0.989576 6.682Z" fill="#1F1F1F"/>
-                </svg>
-                
+              </svg>
             </button>
           </div>
         </div>
