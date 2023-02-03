@@ -14,14 +14,14 @@
   font-family: 'EuclidCircular';
   font-style: normal;
   font-weight: 400;
-  src: url('fonts/EuclidCircularA-Regular.woff2') format('woff2'), 
+  src: url('/public/fonts/EuclidCircularA-Regular.woff2') format('woff2'), 
 }
 
 @font-face {
   font-family: 'EuclidCircular';
   font-style: normal;
   font-weight: 500;
-  src: url('fonts/EuclidCircularA-Medium.woff2') format('woff2'), 
+  src: url('/public/fonts/EuclidCircularA-Medium.woff2') format('woff2'), 
 }
 
 @font-face {
