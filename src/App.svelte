@@ -188,6 +188,43 @@
 
 <style lang="scss">
 
+  /* ---------- Fonts ---------- */
+
+@font-face {
+  font-family: 'EuclidCircular';
+  font-style: normal;
+  font-weight: 300;
+  src: url('./assets/fonts/EuclidCircularA-Light.woff2') format('woff2'), 
+}
+
+@font-face {
+  font-family: 'EuclidCircular';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/EuclidCircularA-Regular.woff2') format('woff2'), 
+}
+
+@font-face {
+  font-family: 'EuclidCircular';
+  font-style: normal;
+  font-weight: 500;
+  src: url('./assets/fonts/EuclidCircularA-Medium.woff2') format('woff2'), 
+}
+
+@font-face {
+  font-family: 'EuclidCircular';
+  font-style: normal;
+  font-weight: 600;
+  src: url('./assets/fonts/EuclidCircularA-SemiBold.woff2') format('woff2'), 
+}
+
+@font-face {
+  font-family: 'EuclidCircular';
+  font-style: normal;
+  font-weight: 700;
+  src: url('./assets/fonts/EuclidCircularA-Bold.woff2') format('woff2'), 
+}
+
   $cWhite: #ffffff;
   $cGrey1: #FAFAFA;
   $cGrey2: #F0F0F0;
@@ -202,8 +239,6 @@
   $cBlack: #000000;
 
   @import "src/assets/styles/style.scss";
-
-  
 
   .main-index{
     @extend %container-center;
