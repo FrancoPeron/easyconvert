@@ -15,7 +15,7 @@
   };
 
   let dataImgsFiles = [];
-  let quality = 0.5
+  let quality = 0.45
   
 /* || Functions || ----------------------------------------*/
 
@@ -173,8 +173,8 @@
 
     <div class="imgs-box__nav">
       <div class="imgs-box__input">
-        <input type="range" id="volume" min="0" max="1" bind:value="{quality}" step="0.1">
-        <p>{quality}</p>
+        <input type="range" id="volume" min="0" max="0.9" bind:value="{quality}" step="0.05">
+        {quality}
       </div>
       <div class="imgs-box__btns">
         <button class="imgs-box__down" on:click={downloadZip}>Download as Zip File</button>
