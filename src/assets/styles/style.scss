@@ -204,7 +204,7 @@ main {
 };
 
 /* ---------- Font ---------- */
-//@include font(ft2, w400, MonumentE, lsWidest);
+//@include font(ft2, w400, lsWidest);
 @mixin font($f-size:fb1,$f-width:w500,$f-letterS:lsNormal) {
 
 

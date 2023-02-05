@@ -164,9 +164,13 @@
     </div>
 
     <div class="imgs-box__nav">
-      <div class="imgs-box__input">
-        <input type="range" id="volume" min="0" max="0.9" bind:value="{quality}" step="0.05">
-        {quality}
+      <div class="imgs-box__quality">
+        <div class="imgs-box__box">
+          <p class="imgs-box__text">Low</p>
+          <p class="imgs-box__text">Medium</p>
+          <p class="imgs-box__text">High</p>
+        </div>
+        <input class="imgs-box__input" type="range" id="volume" min="0" max="0.9" bind:value="{quality}" step="0.05">
       </div>
       <div class="imgs-box__btns">
         <button class="imgs-box__down" on:click={downloadZip}>Download as Zip File</button>
@@ -369,6 +373,52 @@
         width: 100%;
         min-height: 80px;
         padding: 0 1.5rem;
+
+        .imgs-box__quality{
+          @include flex(column);
+          gap: 6px;
+          width: 170px;
+          .imgs-box__box{
+            @include flex();
+            justify-content: space-between;
+            align-items: center;
+            .imgs-box__text{
+              @include font(fc, w500);
+              color: $cGrey6;
+            }
+          }
+          
+          .imgs-box__input{
+            -webkit-appearance: none;
+            margin-right: 15px;
+            width: 200px;
+            height: 7px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 5px;
+            background-image: linear-gradient(#ff4500, #ff4500);
+            background-size: 70% 100%;
+            background-repeat: no-repeat;
+            &::-webkit-slider-thumb{
+              -webkit-appearance: none;
+              height: 20px;
+              width: 20px;
+              border-radius: 50%;
+              background: #9f9e9e;
+              cursor: ew-resize;
+              box-shadow: 0 0 2px 0 #555;
+              transition: background .3s ease-in-out;
+            }
+            &::-moz-range-thumb{
+
+            }
+            &::-moz-range-track{
+              background-color: #9E9E9E;
+              border-radius: 50px;
+              height: 4px;
+            }
+          }
+
+        }
 
         .imgs-box__btns{
           @include flex();
