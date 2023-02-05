@@ -1,27 +1,30 @@
 
-.bedelay{
-  position: relative;
-  cursor: pointer;
-}
+
 .bedelay::before{
+  content: "" !important;
+  opacity: 1 !important;
+  transition : all .2s linear;
+  
+}
+
+.bedelay:hover::before{
+  background: rgba(66, 66, 66, 0.15) url(/src/assets/imgs/down.svg) no-repeat !important;
+  background-position: center !important;
+  background-size: 80px 80px!important;
+}
+
+.bedelayload::after{
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: calc(100% - 6px);
-  height: calc(100% - 6px);;
+  height: calc(100% - 6px);
   z-index: 999;
-  background: rgba(66, 66, 66, 0.15) url(/src/assets/imgs/tick.svg) no-repeat;
   background-position: center;
   background-size: 80px auto;
-  /* backdrop-filter: blur(2px); */
   border: 3px solid #FFFFFF;
   border-radius: 6px 6px 0 0 ;
-  
-}
 
-.bedelay:hover::before{
-  background: rgba(66, 66, 66, 0.15) url(/src/assets/imgs/down.svg) no-repeat;
-  background-position: center;
-  background-size: 60px auto;
+  backdrop-filter: blur(2px);
 }

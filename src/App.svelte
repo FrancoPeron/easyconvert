@@ -38,6 +38,12 @@
 
   }
 
+  function addLoadBedelay(){
+    dataImgsFiles.forEach(element => {
+      document.getElementById(element.id).classList.add("bedelayload")
+    });
+  }
+
   function removeBedelay(){
     dataImgsFiles.forEach(element => {
       document.getElementById(element.id).classList.remove("bedelay")
@@ -49,6 +55,7 @@
   function addBedelay(){
     dataImgsFiles.forEach(element => {
       if (element.webpImg) {
+        document.getElementById(element.id).classList.remove("bedelayload")
         document.getElementById(element.id).classList.add("bedelay")
       }
     });
@@ -66,6 +73,8 @@
 
   function convertImgWebp(){
     console.log("convirtiendo!")
+    removeBedelay()
+    addLoadBedelay()
     //Creo el canvas
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
@@ -433,9 +442,29 @@
           height: max-content;
           border-radius: 6px;
 
-          .imgs-list__img{
+            .imgs-list__img{
+              display: inherit;
+              position: relative;
+              cursor: pointer;
+              
+            &::before{
+              content: "";
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: calc(100% - 6px);
+              height: calc(100% - 6px);
+              z-index: 999;
+              border: 3px solid #FFFFFF;
+              border-radius: 6px 6px 0 0 ;
+  
+              background: rgba(66, 66, 66, 0.15) url(/src/assets/imgs/tick.svg) no-repeat;
+              background-position: center;
+              background-size: 80px 80px;
 
-            display: inherit;
+              transition : all .4s linear;
+              opacity: 0;
+            }
             
             .imgs-list__preview-img{
               width: 100%;
