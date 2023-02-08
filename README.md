@@ -2,10 +2,10 @@
 
 <h1 align="center">• EasyWebp •</h1>
 
-<h3 align="center">
+<h2 align="center">
 
   [www.easywebp.netlify.app](https://easywebp.netlify.app)
-</h3>
+</h2>
 
 ![Product Name Screen Shot]()
 <br>
@@ -41,17 +41,17 @@
 
 ## About The Project
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+easywebp nacio de la nesesidad cargar imagenes a firebase en formto webp automaticamente y como le vi potencial cree un projecto aparte para desarrollarlo mejor 
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
+## Usage
 
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+For this page use the following tools and frameworks/libraries:
+
+<br>
 
 [![Figma][Figma.js]][Figma-url]
 
@@ -61,13 +61,8 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
 ## Installation
+<br>
 
 1. ´Clone the repo´
    ```sh
@@ -81,16 +76,6 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    npm run dev
    ```
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
