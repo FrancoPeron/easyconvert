@@ -216,7 +216,7 @@
         <input class="imgs-box__input" type="range" id="volume" min="0" max="0.9" bind:value="{quality}" step="0.05">
       </div>
       <div class="imgs-box__btns">
-        <button class="imgs-box__down" disabled={!converted} on:click={downloadZip}>Download as Zip File</button>
+        <button class="imgs-box__down" disabled={!converted || dataImgsFiles.length == 0} on:click={downloadZip}>Download as Zip File</button>
         <button class="imgs-box__convert" disabled={dataImgsFiles.length == 0} on:click={convertImgWebp}>Convert</button>
       </div>
     </div>

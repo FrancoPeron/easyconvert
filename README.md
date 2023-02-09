@@ -10,42 +10,13 @@
 ![Product Name Screen Shot]()
 <br>
 
-
-<!-- TABLE OF CONTENTS -->
-<!-- <details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details> -->
-
-
-
 ## About The Project
 
-easywebp nacio de la nesesidad cargar imagenes a firebase en formto webp automaticamente y como le vi potencial cree un projecto aparte para desarrollarlo mejor 
+easywebp se creo de la nesesidad cargar imagenes a firebase en formto WEBP automaticamente y como le vi potencial cree un projecto aparte para desarrollarlo mejor, en algun futuro planeo implementarle el formato AVIF.
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+img
 
 ### Built With
 
@@ -56,6 +27,7 @@ For this page use the following tools and frameworks/libraries:
 [![Figma][Figma.js]][Figma-url]
 
 [![Vite][Vite.js]][Vite-url]
+[![Svelte][Svelte.js]][Svelte-url]
 [![Sass][Sass]][Sass-url]
 [![Netlify][Netlify.js]][Netlify-url]
 
@@ -66,7 +38,7 @@ For this page use the following tools and frameworks/libraries:
 
 1. ´Clone the repo´
    ```sh
-   git clone https://github.com/FrancoPeron/owslagoods.git
+   git clone https://github.com/FrancoPeron/easywebp.git
    ```
 2. Install NPM packages
    ```sh
@@ -100,23 +72,17 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
-
-
-
-
 [Figma.js]: https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white
 [Figma-url]: https://www.figma.com/
 
 [Vite.js]: https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E
 [Vite-url]: https://vitejs.dev
-[Netlify.js]: https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white
-[Netlify-url]: https://app.netlify.com/
-[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
-[Svelte-url]: https://svelte.dev/
 [Sass]:	https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white
 [Sass-url]: https://vitejs.dev
+[Svelte.js]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
+[Svelte-url]: https://svelte.dev/
+[Netlify.js]: https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white
+[Netlify-url]: https://app.netlify.com/
 
 
 [Linkedin.js]: https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white
