@@ -549,7 +549,7 @@
         padding: 1.5rem;
 
         @include respond(xs){
-          grid-template-columns: repeat(auto-fit, minmax(150px, .5fr));
+          grid-template-columns: repeat(auto-fit, minmax(250px, .5fr));
         }
 
         .imgs-list__item{
