@@ -22,6 +22,7 @@ $cBrand--600: hsl($color,100%,89%);
   background: linear-gradient(180deg, #FFFFFF 0%, $cBrand--100 100%), #FFFFFF;
   min-width: 400px;
   height: 100vh;
+  position: relative;
 }
 
 /* ---------- Fonts ---------- */
