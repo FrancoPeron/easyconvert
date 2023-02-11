@@ -22,7 +22,8 @@ $cBrand--300: hsl($color,67%, 56%);
   font-family: 'EuclidCircular', sans-serif;
   background: linear-gradient(180deg, #FFFFFF 0%, $cBrand--100 100%), #FFFFFF;
   min-width: 400px;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   position: relative;
 }
 
