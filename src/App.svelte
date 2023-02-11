@@ -319,7 +319,7 @@
       display: block;
     }
     stop{
-      stop-color: hsl($color,60%,43%);;
+      stop-color: $cBrand;
     }
   }
   
@@ -411,7 +411,7 @@
         bottom:0;
         mask: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='16' ry='16' stroke='%23000000FF' stroke-width='5' stroke-dasharray='10%2c15' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
         -webkit-mask: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='16' ry='16' stroke='%23000000FF' stroke-width='5' stroke-dasharray='10%2c15' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
-        background-color: hsl($color,60%,43%);
+        background-color: $cBrand;
         border-radius: 16px;
       }
 
