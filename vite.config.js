@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
 import sveltePreprocess from 'svelte-preprocess';
-import { VitePluginFonts } from 'vite-plugin-fonts'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,20 +10,6 @@ export default defineConfig({
       scss: true
       }),
     }),
-    VitePluginFonts({
-      // Custom fonts.
-      custom: {
-        families: [
-          {
-            name: "EuclidCircular",
-            local: "EuclidCircular",
-            src: "/fonts/EuclidCircularA-Medium.woff2",
-          },
-        ],
-        display: "auto",
-        preload: true,
-      },
-    })
   ],
   build: {
     outDir: './public/dist'
