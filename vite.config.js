@@ -9,11 +9,6 @@ export default defineConfig({
     svelte({
     preprocess: sveltePreprocess({
       scss: true
-      // {
-      //   renderSync: true,
-      //   implementation: 'sass',
-      //   prependData: '@import "src/assets/styles/style.scss";',
-      // },
       }),
     }),
     VitePluginFonts({
@@ -30,8 +25,6 @@ export default defineConfig({
         preload: true,
       },
     })
-
-
   ],
   build: {
     outDir: './public/dist'

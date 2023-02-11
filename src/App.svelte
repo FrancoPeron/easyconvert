@@ -16,7 +16,7 @@
 /* || Functions || ----------------------------------------*/
 
   function handleFilesSelect(e) {
-    const { acceptedFiles, fileRejections } = e.detail;
+    const { acceptedFiles } = e.detail;
     acceptedFiles.forEach((element)=>{
       dataImgsFiles = [...dataImgsFiles,{...element, id:crypto.randomUUID(),src:URL.createObjectURL(element)}]
     })
@@ -340,7 +340,6 @@
     padding-bottom: 2rem;
     column-gap: 0rem;
     row-gap: 2rem;
-  
 
     @include respond(md){
       grid-template-areas:  "name github"
@@ -349,7 +348,6 @@
       column-gap: 2rem;
       row-gap: 48px;
     }
-
 
     .description{
       grid-area: description;
@@ -784,11 +782,11 @@
     }
 
     .upload-box__or{
-        transform: rotate(90deg);
-        p{
-          transform: rotate(-90deg);
-        }
+      transform: rotate(90deg);
+      p{
+        transform: rotate(-90deg);
       }
+    }
 
     .github{
       overflow: hidden;
