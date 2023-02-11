@@ -41,6 +41,8 @@
 
   }
 
+  /*-------------------------------*/
+
   function addLoadBedelay(){
     dataImgsFiles.forEach(element => {
       document.getElementById(element.id).classList.add("bedelayload")
@@ -73,6 +75,8 @@
       }
     })
   }
+  
+  /*-------------------------------*/
 
   function convertImgWebp(){
     console.log("convirtiendo!")
@@ -169,7 +173,6 @@
     </div>
 
   </Dropzone>
-
 
   {#if firstUpload}
     <section class="imgs-box">
