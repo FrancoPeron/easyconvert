@@ -12,11 +12,7 @@
 
 ## About The Project
 
-EasyConvert se creo de la nesesidad cargar imagenes a firebase en formto WEBP automaticamente y como le vi potencial cree un projecto aparte para desarrollarlo mejor, espero que sea de utilidad, en algun futuro planeo implementarle el formato AVIF.
-
-## Usage
-
-img
+EasyConvert was created from the need to load images to firebase in WEBP format automatically and as I saw its potential I created a separate project to develop it better, I hope it will be useful for your projects, in some future I plan to implement the AVIF format.
 
 ### Built With
 
@@ -24,9 +20,9 @@ For this page use the following tools and frameworks/libraries:
 
 [![Figma][Figma.js]][Figma-url]
 
-[![Vite][Vite.js]][Vite-url]
-[![Svelte][Svelte.js]][Svelte-url]
-[![Sass][Sass]][Sass-url]
+[![Vite][Vite.js]][Vite-url]ㅤ
+[![Svelte][Svelte.js]][Svelte-url]ㅤ
+[![Sass][Sass]][Sass-url]ㅤ
 [![Netlify][Netlify.js]][Netlify-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -58,11 +54,14 @@ Distributed under the MIT License. See `LICENSE.txt` for more information. -->
 
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+### Franco Perón
 
-[![LinkedIn][Linkedin.js]][Linkedin-url]
-[![Dribbble][Dribbble.js]][Dribbble-url]
-[![Whatsapp][Whatsapp.js]][Whatsapp-url]
+Email: francoperon@outlook.com
+
+[![LinkedIn][Linkedin]][Linkedin-url]ㅤ
+[![Behance][Behance]][Behance-url]ㅤ
+[![Dribbble][Dribbble]][Dribbble-url]ㅤ
+[![Whatsapp][Whatsapp]][Whatsapp-url]
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -73,16 +72,18 @@ Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.c
 [Vite.js]: https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E
 [Vite-url]: https://vitejs.dev
 [Sass]:	https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white
-[Sass-url]: https://vitejs.dev
+[Sass-url]: https://sass-lang.com/
 [Svelte.js]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
 [Svelte-url]: https://svelte.dev/
 [Netlify.js]: https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white
 [Netlify-url]: https://app.netlify.com/
 
 
-[Linkedin.js]: https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white
-[linkedin-url]: https://www.figma.com/
-[Dribbble.js]: https://img.shields.io/badge/Dribbble-EA4C89?style=for-the-badge&logo=dribbble&logoColor=white
-[Dribbble-url]: https://www.figma.com/
-[Whatsapp.js]: https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white
-[Whatsapp-url]: https://www.figma.com/
+[Linkedin]: https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white
+[linkedin-url]: www.linkedin.com/in/francoperon
+[Behance]:https://img.shields.io/badge/Behance-0054F7?style=for-the-badge&logo=behance&logoColor=white
+[Behance-url]: https://www.behance.net/francoperon
+[Dribbble]: https://img.shields.io/badge/Dribbble-EA4C89?style=for-the-badge&logo=dribbble&logoColor=white
+[Dribbble-url]: https://dribbble.com/Francoperon
+[Whatsapp]: https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white
+[Whatsapp-url]: https://wa.me/542995090415
