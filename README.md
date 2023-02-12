@@ -1,18 +1,18 @@
 <a name="readme-top"></a>
 
-<h1 align="center">• EasyWebp •</h1>
+<h1 align="center">• EasyConvert •</h1>
 
 <h2 align="center">
 
-  [www.easywebp.netlify.app](https://easywebp.netlify.app)
+  [www.easyimgconvert.netlify.app](https://easyimgconvert.netlify.app/)
 </h2>
 
-![Product Name Screen Shot]()
+![Product Name Screen Shot](https://mir-s3-cdn-cf.behance.net/project_modules/fs/194288163626385.63e95163d16d9.png)
 <br>
 
 ## About The Project
 
-easywebp se creo de la nesesidad cargar imagenes a firebase en formto WEBP automaticamente y como le vi potencial cree un projecto aparte para desarrollarlo mejor, en algun futuro planeo implementarle el formato AVIF.
+EasyConvert se creo de la nesesidad cargar imagenes a firebase en formto WEBP automaticamente y como le vi potencial cree un projecto aparte para desarrollarlo mejor, espero que sea de utilidad, en algun futuro planeo implementarle el formato AVIF.
 
 ## Usage
 
@@ -21,8 +21,6 @@ img
 ### Built With
 
 For this page use the following tools and frameworks/libraries:
-
-<br>
 
 [![Figma][Figma.js]][Figma-url]
 
@@ -52,23 +50,20 @@ For this page use the following tools and frameworks/libraries:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## License
+<!-- ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the MIT License. See `LICENSE.txt` for more information. -->
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<!-- <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 ## Contact
 
-fdsfrrtdhdfghdrthdfgjdfghdrthfghdfh
+Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
 
 [![LinkedIn][Linkedin.js]][Linkedin-url]
 [![Dribbble][Dribbble.js]][Dribbble-url]
 [![Whatsapp][Whatsapp.js]][Whatsapp-url]
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

@@ -678,8 +678,6 @@
             }
           }
 
-          $range-size: 1.5rem;
-          $range-colour: #DF2046;  
           .imgs-box__input{
             
             -ms-appearance: none;
@@ -723,7 +721,7 @@
           .imgs-box__down{
             font-family: 'EuclidCircular';
             font-weight: 500;
-            font-size: 18px;
+            font-size: 16px;
             line-height: 20px;
             padding: 0.5rem;
             &:hover{
@@ -731,11 +729,12 @@
               text-underline-offset: 6px;
               text-decoration-thickness: 1.5px;
             }
+            
           }
   
           .imgs-box__convert{
             @include btn(cW,bgB);
-            font-size: 18px;
+            font-size: 16px;
             height: 42px;
             background-color: $cBrand;
           }
