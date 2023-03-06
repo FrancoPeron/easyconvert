@@ -514,6 +514,7 @@
         align-items: center;
         gap: 1rem;
         height: 73px;
+        z-index: 1;
 
         .upload-box__count{
           @include font(fb1);
